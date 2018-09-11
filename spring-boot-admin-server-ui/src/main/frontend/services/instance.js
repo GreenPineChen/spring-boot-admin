@@ -91,6 +91,12 @@ class Instance {
     }
   }
 
+  async fetchConfigprops() {
+    return this.axios.get(uri`actuator/configprops`, {
+      headers: {'Accept': actuatorMimeTypes}
+    });
+  }
+
   async fetchEnv(name) {
     return this.axios.get(uri`actuator/env/${name || '' }`, {
       headers: {'Accept': actuatorMimeTypes}
